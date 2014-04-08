@@ -1,0 +1,69 @@
+<!-- 
+	Author: Rohit Menon
+	Matric No. U1222512H
+	Lab group: SSP3
+ -->
+<!DOCTYPE html PUBLIC "-//w3c//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml">
+
+	<title> Assignment No. 2 </title>
+	<script type="text/javascript" src="js/validate.js"></script>
+
+	<body>
+		<form id = "myForm" action = "payment.php" method="post"  onSubmit="return validate();"> 
+			<div>
+				<h3> Enter your name: </h3>
+				<input type="text" id="custName" name="custName" />
+			</div>
+			<br />
+			<br />
+			<p>
+				<label> No. of Apples: </label>
+				<input type="text" id="apples" value="0" name="apples" onchange="validateInput()" />
+				<br />
+
+				<label> No. of Oranges: </label>
+				<input type="text" id="oranges" value="0" name="oranges" onchange="validateInput()" />
+				<br />
+
+				<label> No. of Bananas: </label>
+				<input type="text" id="bananas" value="0" name="bananas" onchange="validateInput()" />
+				<br />
+
+				<p>
+					<label>Total Cost</label>
+					<input type="text" id="cost" name="totalCost" onfocus = "this.blur();" />
+				</p>
+
+			</p>
+
+		<br />
+		<br />
+			<p>
+				<label>Payment Methods: </label>
+				<br /> <br />
+
+				<input type="radio" name="payment" id="visa" value="visa" checked /> Visa
+				<br />
+
+				<input type="radio" name="payment" id="mastercard" value="mastercard" /> Master Card
+				<br />
+
+				<input type="radio" name="payment" id="discover" value="discover" /> Discover
+				<br />
+			</p>
+			
+			<br />
+			<br />
+
+			<p>
+				<input type = "submit" name = "Submit" />
+			</p>
+		</form>
+	</body>
+
+
+
+</html>
