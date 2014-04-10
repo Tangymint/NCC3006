@@ -11,23 +11,26 @@
 
 
 	<div class="container">
-		<div class="md-offset-3">
-			<h3 class="pull-center">Invoice</h3>
 
+		<div class="md-offset-3 col-xs-12 col-md-8">
+			<div class="header">
+		        <ul class="nav nav-pills pull-right">
+		          <li class="active"><a href="index.html">Home</a></li>
+		        </ul>
+		    </div>
+			<h3 class="text-center">Invoice</h3>
+
+			<div class="row span12" >
+				<hr>
+			</div>
+			<br />
 			<?php
-				echo "<h4>Customer Name: ".$_GET["name"]. "</h4>";
+				echo "<h4><strong>Customer Name: </strong> ".$_GET["name"]. "</h4>";
 			?>
 				<!-- <table border="border"> -->
 				<table class="table table-striped table-bordered">
-			<?php
-				echo "<thead>";
-					echo "<tr>";
-						echo "<td colspan=\"2\">Customer Name</td>";
-						echo "<td colspan=\"2\">".$_GET["name"]. "</td>";
-					echo "</tr>";
-				echo "</thead>";
+				<br />
 
-			?>		
 					<!-- First row: Column heading -->
 					<tr>
 						<th>Item</th>
@@ -60,8 +63,9 @@
 				
 				</table>
 
-				<h5>Payment method: <?php echo $_GET["payment"] ?> </h5>
-				<h5>Total Cost = <?php echo $_GET["total"] ?> </h5>
+				<h4><strong>Payment method: </strong><?php echo $_GET["payment"] ?> </h4>
+				<br />
+				<h4 class="text-right"><strong>Total Cost = </strong><?php echo $_GET["total"] ?> </h5>
 		</div>
 	</div>
 

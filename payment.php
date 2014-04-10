@@ -7,6 +7,7 @@
 
 $apples = $oranges = $bananas = 0;
 $name = $payment = "";
+
 // Function to read input from file
 function readFromFile(){
 
@@ -21,14 +22,7 @@ function readFromFile(){
 		
 		// Assign corresponding value of quantity to the fruit
 		$total_records[$fruit] = (int)$quantity[1];
-
-		// echo "$<br> fruit = ";
-		// var_dump($fruit);
-		// echo "<br> total_records = ";
-		var_dump($total_records[$fruit]);
-		// var_dump(total_records);
-		// echo "<br>";
-		
+		var_dump($total_records[$fruit]);		
 	}
 	fclose($file);
 	return $total_records;	
@@ -36,28 +30,15 @@ function readFromFile(){
 
 function writeToFile($total_records){
 
-	$file = fopen("test.txt", "w+");
+	// Write the value to file  
+	$file = fopen("order.txt", "w+");
 
 	foreach ($total_records as $fruit => $quantity) {
-		// printf("\r\nTotal number of %s" .$fruit. " : " .$quantity);
 		fwrite($file, "Total number of " .$fruit. " : " .$quantity. "\r\n");
 	}
 
 	fclose($file);
 }
-
-
-
-// $test = readFromFile();
-// for ($x=0, ) {
-// 	# code...
-// 	printf($test[$key]);
-// }
-
-// readFromFile();
-// var_dump($test);
-
-// writeToFile($test);
 
 function addQuantities($apples, $oranges, $bananas){
 
@@ -66,24 +47,15 @@ function addQuantities($apples, $oranges, $bananas){
 
 	echo "<br>";
 	var_dump($temp);
-
-	// echo "<br> apples before";
-	// echo $temp["apples"];
-
 	$temp["apples"] += $apples;
 	$temp["oranges"] += $oranges;
 	$temp["bananas"] += $bananas;
-
-	// echo "<br> apples after";
-	// echo $temp["apples"];
-
 	writeToFile($temp);
 }
 
 
 
 if(isset($_POST['Submit'])) {	//POST is not null
-	// var_dump($_POST['Submit']);
 	$name = $_POST['custName'];
 	echo "Payment: ";
 	print($_POST['payment']);
@@ -141,29 +113,9 @@ if(isset($_POST['Submit'])) {	//POST is not null
 
 		exit;
 	}
-
-	// if(isset($_POST['oranges'])){
-	// 	$oranges = $_POST['oranges'];
-	// }
-
-	// if(isset($_POST['bananas'])){
-	// 	$bananas = $_POST['bananas'];
-	// 	// printf("bananas: %u", $bananas);
-	// 	var_dump($_POST['bananas']);
-	// }
-
-
-	// $oranges = $_POST['oranges'];
-	// $bananas = $_POST['bananas'];
-	// printf("apples: %u, oranges: %u, bananas: %u", $apples, $oranges, $bananas);
-
-	// $total = ($apples * 0.69) + ($oranges * 0.59) + ($bananas * 0.39);
-	// // header("Location: invoice.html");
-	// printf("\n\n Total Cost = ", $total);
-	// exit;
 }
 else{
-	// header("Location: error.html");
+	header("Location: error.html");
 	exit;
 }
 
